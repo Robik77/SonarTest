@@ -45,8 +45,6 @@ namespace Host.Controllers
             }
             catch (System.Exception)
             {
-                //ToDO exCatcher
-                throw;
             }
         }
     }
