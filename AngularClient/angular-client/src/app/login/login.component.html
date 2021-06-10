@@ -1,0 +1,28 @@
+<div class="logincard">
+    <h2 style="padding: 20px;">Login</h2>
+
+    <form class="loginform" *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+        novalidate>
+        <mat-form-field appearance="outline" class="loginfield">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" name="email" [(ngModel)]="form.email" required email #email="ngModel">
+            <mat-error *ngIf="email.errors && f.submitted">Email is <strong>required</strong></mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="loginfield">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" name="password" [(ngModel)]="form.password" required minlength="6"
+                #password="ngModel">
+            <mat-error *ngIf="password.errors && f.submitted">
+                <div *ngIf="password.errors.required">Password is <strong>required</strong></div>
+                <div *ngIf="password.errors.minlength">
+                    Least 6 characters
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+        <button class="loginbutton" mat-raised-button style="margin-top: 10px;">Login</button>
+    </form>
+    <button mat-button routerLink="/register">Create account</button><br>
+    <button mat-button>Frogot password?</button>
+</div>
